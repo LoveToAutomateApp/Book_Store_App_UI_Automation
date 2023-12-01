@@ -14,11 +14,13 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import pageobject.LoginPageObject;
+import pageobject.ProfilePageObject;
 import resources.Base;
 
 public class LoginTest extends Base {
 	public WebDriver driver;
 	public LoginPageObject lpo;
+	public ProfilePageObject ppo;
 	
 	@BeforeTest
 	public void navigateUrl() throws IOException {
@@ -72,6 +74,40 @@ public class LoginTest extends Base {
 		data[5][0] = "testoepe";
 		data[5][1] = "hheheddfgheheh";
 		
+		return data;
+	}
+	
+	/*
+	 * ensure user is signed in with valid credentials
+	 * after signin user should also sign out
+	 */
+	
+	@Test(dataProvider="signinWithValidCredentials")
+	public void verify_user_signin_with_valid_username_and_password(String username, String password) throws InterruptedException {
+		lpo = new LoginPageObject(driver);
+		ppo = new ProfilePageObject(driver);
+		lpo.getUsernameField().sendKeys(username);
+		lpo.getPasswordField().sendKeys(password);
+		WebElement loginBtn = lpo.getLoginButton();
+		WebDriverWait w = new WebDriverWait(driver,Duration.ofSeconds(10));
+		w.until(ExpectedConditions.elementToBeClickable(loginBtn)).click();
+        Thread.sleep(3000);
+		String userNameVal = ppo.getProfileUsername().getText();
+        Assert.assertEquals(userNameVal, username);
+        ppo.getLogoutSubmit().click();
+        Thread.sleep(3000);
+       driver.navigate().refresh();
+	}
+	
+	@DataProvider(name="signinWithValidCredentials")
+	public Object[][] getData2(){
+		Object[][] data = new Object[3][2];
+		data[0][0] = "test123";
+		data[0][1] = "Test@123";
+		data[1][0] = "test1234";
+		data[1][1] = "Test@1234";
+		data[2][0] = "test12345";
+		data[2][1] = "Test@12345";
 		return data;
 	}
 	

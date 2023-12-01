@@ -1,8 +1,12 @@
 package pageobject;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPageObject {
 
@@ -37,5 +41,13 @@ public class LoginPageObject {
 	
 	public WebElement getErrorMessage() {
 		return driver.findElement(error_message);
+	}
+	
+	public void getUserSignedIn(String usernameVal, String passwordVal) {
+		driver.findElement(username).sendKeys(usernameVal);
+		driver.findElement(password).sendKeys(passwordVal);
+		WebElement loginSubmit = driver.findElement(login_button);
+		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(10));
+		w.until(ExpectedConditions.elementToBeClickable(loginSubmit)).click();
 	}
 }

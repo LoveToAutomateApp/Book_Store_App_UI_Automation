@@ -6,6 +6,7 @@
       <class name="testspec.ProfileTest">
         <methods>
           <include name="navigateUrl"/>
+          <include name="verify_book_is_added_to_collection"/>
           <include name="verify_functional_buttons_are_displayed"/>
           <include name="terminate"/>
         </methods>

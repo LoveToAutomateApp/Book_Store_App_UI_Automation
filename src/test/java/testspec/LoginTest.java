@@ -13,6 +13,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import pageobject.CommonPageObject;
 import pageobject.LoginPageObject;
 import pageobject.ProfilePageObject;
 import resources.Base;
@@ -21,12 +22,15 @@ public class LoginTest extends Base {
 	public WebDriver driver;
 	public LoginPageObject lpo;
 	public ProfilePageObject ppo;
+	public CommonPageObject cpo;
 	
 	@BeforeTest
 	public void navigateUrl() throws IOException {
 	  driver = initializeDriver();
 	  driver.manage().window().maximize();
 	  driver.get(prop.getProperty("loginUrl"));
+	  lpo = new LoginPageObject(driver);
+	  cpo = new CommonPageObject(driver);
 	}
 	
 	/*
@@ -35,7 +39,7 @@ public class LoginTest extends Base {
 	 */
 	@Test(dataProvider ="signinWithInvalidCredentials")
 	public void verify_user_signin_with_invalid_username_and_password(String username, String password) {
-		lpo = new LoginPageObject(driver);
+
 		lpo.getUsernameField().sendKeys(username);
 		lpo.getPasswordField().sendKeys(password);
 		WebElement loginBtn = lpo.getLoginButton();
@@ -84,8 +88,6 @@ public class LoginTest extends Base {
 	
 	@Test(dataProvider="signinWithValidCredentials")
 	public void verify_user_signin_with_valid_username_and_password(String username, String password) throws InterruptedException {
-		lpo = new LoginPageObject(driver);
-		ppo = new ProfilePageObject(driver);
 		lpo.getUsernameField().sendKeys(username);
 		lpo.getPasswordField().sendKeys(password);
 		WebElement loginBtn = lpo.getLoginButton();
@@ -94,7 +96,7 @@ public class LoginTest extends Base {
         Thread.sleep(3000);
 		String userNameVal = ppo.getProfileUsername().getText();
         Assert.assertEquals(userNameVal, username);
-        ppo.getLogoutSubmit().click();
+        cpo.getLogoutSubmit().click();
         Thread.sleep(3000);
        driver.navigate().refresh();
 	}

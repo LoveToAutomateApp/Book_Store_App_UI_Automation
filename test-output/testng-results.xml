@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-01T22:42:33 IST" name="Default suite" finished-at="2023-12-01T22:43:49 IST" duration-ms="75812">
+  <suite started-at="2023-12-12T23:55:37 IST" name="Default suite" finished-at="2023-12-12T23:56:13 IST" duration-ms="36275">
     <groups>
     </groups>
-    <test started-at="2023-12-01T22:42:33 IST" name="Default test" finished-at="2023-12-01T22:43:49 IST" duration-ms="75812">
+    <test started-at="2023-12-12T23:55:37 IST" name="Default test" finished-at="2023-12-12T23:56:13 IST" duration-ms="36275">
       <class name="testspec.ProfileTest">
-        <test-method is-config="true" signature="navigateUrl()[pri:0, instance:testspec.ProfileTest@7e9131d5]" started-at="2023-12-01T22:42:33 IST" name="navigateUrl" finished-at="2023-12-01T22:43:45 IST" duration-ms="72341" status="PASS">
+        <test-method is-config="true" signature="navigateUrl()[pri:0, instance:testspec.ProfileTest@2177849e]" started-at="2023-12-12T23:55:37 IST" name="navigateUrl" finished-at="2023-12-12T23:56:01 IST" duration-ms="23564" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateUrl -->
-        <test-method signature="verify_functional_buttons_are_displayed()[pri:0, instance:testspec.ProfileTest@7e9131d5]" started-at="2023-12-01T22:43:45 IST" name="verify_functional_buttons_are_displayed" finished-at="2023-12-01T22:43:48 IST" duration-ms="3070" status="PASS">
+        <test-method signature="verify_book_is_added_to_collection(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:testspec.ProfileTest@2177849e]" started-at="2023-12-12T23:56:01 IST" name="verify_book_is_added_to_collection" data-provider="book" finished-at="2023-12-12T23:56:09 IST" duration-ms="8797" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[test123]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Speaking JavaScript]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_book_is_added_to_collection -->
+        <test-method signature="verify_functional_buttons_are_displayed()[pri:0, instance:testspec.ProfileTest@2177849e]" started-at="2023-12-12T23:56:09 IST" name="verify_functional_buttons_are_displayed" finished-at="2023-12-12T23:56:13 IST" duration-ms="3230" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verify_functional_buttons_are_displayed -->
-        <test-method is-config="true" signature="terminate()[pri:0, instance:testspec.ProfileTest@7e9131d5]" started-at="2023-12-01T22:43:48 IST" name="terminate" finished-at="2023-12-01T22:43:49 IST" duration-ms="340" status="PASS">
+        <test-method is-config="true" signature="terminate()[pri:0, instance:testspec.ProfileTest@2177849e]" started-at="2023-12-12T23:56:13 IST" name="terminate" finished-at="2023-12-12T23:56:13 IST" duration-ms="591" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- terminate -->

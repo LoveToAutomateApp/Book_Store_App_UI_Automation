@@ -1,19 +1,26 @@
 package testspec;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import pageobject.CommonPageObject;
 import pageobject.LoginPageObject;
 import pageobject.ProfilePageObject;
+import pageobject.ShopPageObject;
 import resources.Base;
 
 public class ProfileTest extends Base {
@@ -21,12 +28,18 @@ public class ProfileTest extends Base {
 	public WebDriver driver;
 	public LoginPageObject lpo;
 	public ProfilePageObject ppo;
+	public CommonPageObject cpo;
+	public ShopPageObject spo;
 	
 	@BeforeTest
 	public void navigateUrl() throws IOException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
 		driver.get(prop.getProperty("loginUrl"));
+		lpo = new LoginPageObject(driver);
+		ppo = new ProfilePageObject(driver);
+		cpo = new CommonPageObject(driver);
+		spo = new ShopPageObject(driver);
 	}
 	
 	/*
@@ -36,14 +49,9 @@ public class ProfileTest extends Base {
 	
 	@Test
 	public void verify_functional_buttons_are_displayed() throws InterruptedException {
-		lpo = new LoginPageObject(driver);
-		ppo = new ProfilePageObject(driver);
 		lpo.getUserSignedIn("test123", "Test@123");
 	    Thread.sleep(2000); 
-	    
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
-	    js.executeScript("window.scrollBy(0,350)", "");
-	    
+	    cpo.getScreenScrollDown();
 	    List<WebElement> button_list = ppo.getButtonList();
 	    for(int i=0; i< button_list.size();i++) {
 	    	String buttonVal = button_list.get(i).getText().replace("\t"," ").replace("\n", " ").toString().trim();
@@ -65,7 +73,50 @@ public class ProfileTest extends Base {
 	    		}
 	    	}
 	    }	    
-	    ppo.getLogoutSubmit().click();
+	    cpo.getLogoutSubmit().click();
+	}
+	
+	/*
+	 *  ensure bookname Speaking Javascript is added to collection
+	 */
+	@Test(dataProvider="book")
+	public void verify_book_is_added_to_collection(String username, String password, String bookname) throws InterruptedException {
+	    
+		
+		lpo.getUserSignedIn(username,password);
+	    
+	    cpo.getSearchField().sendKeys(bookname);
+	    cpo.getSearchSubmit().click();
+	    
+	    List<WebElement> tableList = cpo.getTableList();
+	   
+	    boolean bookStatus = ppo.getBookStatus(tableList,bookname);
+	    if(bookStatus == false) {
+	 	   // Add book to collection
+	       cpo.getScreenScrollDown();
+	 	   ppo.getGoToStoreButton().click();
+	 	   cpo.getSearchField().sendKeys(bookname);
+	 	   cpo.getSearchSubmit().click();
+           ppo.getAddToCollection(bookname);
+    	   cpo.getScreenScrollDown();
+    	   ppo.getAddToCollectionButton().click();
+    	 
+	    }else {
+	    	ppo.getRemoveBook(tableList,bookname);
+	    	cpo.getRecordDelete();
+	    	Thread.sleep(2000);
+	    	driver.switchTo().alert().accept();
+	    }
+	    cpo.getLogoutSubmit().click();
+	}
+	
+	@DataProvider(name="book")
+	public Object[][] getData(){
+		Object[][] data = new Object[1][3];
+		data[0][0] = "test123";
+		data[0][1] = "Test@123";
+		data[0][2] = "Speaking JavaScript";
+		return data;
 	}
 	
 	@AfterTest

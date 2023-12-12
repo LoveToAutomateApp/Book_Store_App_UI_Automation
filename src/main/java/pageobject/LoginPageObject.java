@@ -24,7 +24,7 @@ public class LoginPageObject {
 	}
 
 	public WebElement getUsernameField() {
-		return driver.findElement(username);
+	   return driver.findElement(username);
 	}
 	
 	public WebElement getPasswordField() {
@@ -44,10 +44,10 @@ public class LoginPageObject {
 	}
 	
 	public void getUserSignedIn(String usernameVal, String passwordVal) {
-		driver.findElement(username).sendKeys(usernameVal);
-		driver.findElement(password).sendKeys(passwordVal);
+		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(20));
+		this.getUsernameField().sendKeys(usernameVal);
+		this.getPasswordField().sendKeys(passwordVal);
 		WebElement loginSubmit = driver.findElement(login_button);
-		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(10));
-		w.until(ExpectedConditions.elementToBeClickable(loginSubmit)).click();
+		w.until(ExpectedConditions.elementToBeClickable(loginSubmit)).click();	
 	}
 }

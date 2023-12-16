@@ -8,12 +8,50 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">36,275</td><td></td><td></td></tr>
+<tr><th colspan="8">Suite</th></tr>
+<tr><td><a href="#t0">Test1</a></td><td class="num">7</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">59,449</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">Test2</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">22,993</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">9</th><th class="num">0</th><th class="num">0</th><th class="num attn">2</th><th class="num">82,442</th><th colspan="2"></th></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">testspec.ProfileTest</td><td><a href="#m0">verify_book_is_added_to_collection</a></td><td rowspan="1">1702405561164</td><td rowspan="1">8797</td></tr><tr class="passedeven"><td><a href="#m1">verify_functional_buttons_are_displayed</a></td><td rowspan="1">1702405569974</td><td rowspan="1">3230</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test1 &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">testspec.LoginTest</td><td><a href="#m0">verify_user_signin_with_valid_username_and_password</a></td><td rowspan="2">1702713334104</td><td rowspan="2">3781</td></tr><tr class="failedeven"><td><a href="#m1">verify_user_signin_with_valid_username_and_password</a></td></tr><tr><th colspan="4">Test1 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="7">testspec.LoginTest</td><td><a href="#m2">verify_user_signin_with_invalid_username_and_password</a></td><td rowspan="6">1702713313235</td><td rowspan="6">4953</td></tr><tr class="passedeven"><td><a href="#m3">verify_user_signin_with_invalid_username_and_password</a></td></tr><tr class="passedeven"><td><a href="#m4">verify_user_signin_with_invalid_username_and_password</a></td></tr><tr class="passedeven"><td><a href="#m5">verify_user_signin_with_invalid_username_and_password</a></td></tr><tr class="passedeven"><td><a href="#m6">verify_user_signin_with_invalid_username_and_password</a></td></tr><tr class="passedeven"><td><a href="#m7">verify_user_signin_with_invalid_username_and_password</a></td></tr><tr class="passedeven"><td><a href="#m8">verify_user_signin_with_valid_username_and_password</a></td><td rowspan="1">1702713326409</td><td rowspan="1">7689</td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">Test2 &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">testspec.ProfileTest</td><td><a href="#m9">verify_book_is_added_to_collection</a></td><td rowspan="1">1702713360114</td><td rowspan="1">8842</td></tr><tr class="passedeven"><td><a href="#m10">verify_functional_buttons_are_displayed</a></td><td rowspan="1">1702713368962</td><td rowspan="1">3135</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">testspec.ProfileTest#verify_book_is_added_to_collection</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>test123</td><td>Test@123</td><td>Speaking JavaScript</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testspec.ProfileTest#verify_functional_buttons_are_displayed</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test1</h2><h3 id="m0">testspec.LoginTest#verify_user_signin_with_valid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>test1234</td><td>Test@1234</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: expected [test1234] but found [Test1234]
+	at testspec.LoginTest.verify_user_signin_with_valid_username_and_password(LoginTest.java:97)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testspec.LoginTest#verify_user_signin_with_valid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>test12345</td><td>Test@12345</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#userName&quot;}
+  (Session info: chrome=119.0.6045.200)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.15.0&apos;, revision: &apos;1d14b5521b&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.5&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [f4dd6df101ab0cf0d4caabd01dd80015, findElement {using=id, value=userName}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 119.0.6045.200, chrome: {chromedriverVersion: 119.0.6045.105 (38c72552c5e..., userDataDir: C:\Users\91882\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56096}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56096/devtoo..., se:cdpVersion: 119.0.6045.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: f4dd6df101ab0cf0d4caabd01dd80015
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:200)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:133)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:200)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:607)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:364)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:358)
+	at pageobject.LoginPageObject.getUsernameField(LoginPageObject.java:27)
+	at testspec.LoginTest.verify_user_signin_with_valid_username_and_password(LoginTest.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testspec.LoginTest#verify_user_signin_with_invalid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>-1111111</td><td>-2333333</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">testspec.LoginTest#verify_user_signin_with_invalid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>ttttttttttttttttttttttttttdddddd</td><td>ttttttttttttttdddddddddddddddddd</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">testspec.LoginTest#verify_user_signin_with_invalid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>t</td><td>t</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">testspec.LoginTest#verify_user_signin_with_invalid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>testoepe</td><td>hheheddfgheheh</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">testspec.LoginTest#verify_user_signin_with_invalid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>@@!!$$%%^&amp;*()_+:/&gt;&lt;##&amp;*-=;</td><td>@@!!$$%%^&amp;*()_+:/&gt;&lt;##&amp;*-=;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">testspec.LoginTest#verify_user_signin_with_invalid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&apos;or 1=1;--</td><td>test@123</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">testspec.LoginTest#verify_user_signin_with_valid_username_and_password</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>test123</td><td>Test@123</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test2</h2><h3 id="m9">testspec.ProfileTest#verify_book_is_added_to_collection</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>test123</td><td>Test@123</td><td>Speaking JavaScript</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">testspec.ProfileTest#verify_functional_buttons_are_displayed</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

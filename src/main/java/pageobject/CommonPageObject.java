@@ -14,7 +14,6 @@ public class CommonPageObject {
   private static By profile_table_list = By.cssSelector("div.ReactTable > div.rt-table > div.rt-tbody > div.rt-tr-group");
   private static By alertDeleteRecordText = By.cssSelector("div.modal-dialog > div.modal-content > div.modal-body");
   private static By alertAccept = By.cssSelector("div.modal-footer > button#closeSmallModal-ok");
-  private static By alertCancel = By.cssSelector("div.modal-footer > button#closeSmallModal-cancel");
   private static By logout_submit_button = By.cssSelector("button#submit");
 	
 	

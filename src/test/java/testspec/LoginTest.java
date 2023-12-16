@@ -2,7 +2,6 @@ package testspec;
 
 import java.io.IOException;
 import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,7 +11,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import pageobject.CommonPageObject;
 import pageobject.LoginPageObject;
 import pageobject.ProfilePageObject;
@@ -31,6 +29,7 @@ public class LoginTest extends Base {
 	  driver.get(prop.getProperty("loginUrl"));
 	  lpo = new LoginPageObject(driver);
 	  cpo = new CommonPageObject(driver);
+	  ppo = new ProfilePageObject(driver);
 	}
 	
 	/*

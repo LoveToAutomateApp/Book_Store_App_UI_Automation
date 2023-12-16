@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testspec.ProfileTest">
+      <class name="testspec.LoginTest">
         <methods>
-          <include name="navigateUrl"/>
-          <include name="verify_book_is_added_to_collection"/>
-          <include name="verify_functional_buttons_are_displayed"/>
           <include name="terminate"/>
+          <include name="verify_user_signin_with_valid_username_and_password" invocation-numbers="1 2"/>
+          <include name="navigateUrl"/>
         </methods>
-      </class> <!-- testspec.ProfileTest -->
+      </class> <!-- testspec.LoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

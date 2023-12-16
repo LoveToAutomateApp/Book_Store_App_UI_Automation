@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="1" name="Surefire test(failed)" verbose="0">
+    <classes>
+      <class name="testspec.LoginTest">
+        <methods>
+          <include name="terminate"/>
+          <include name="verify_user_signin_with_valid_username_and_password" invocation-numbers="0 1 2"/>
+          <include name="navigateUrl"/>
+        </methods>
+      </class> <!-- testspec.LoginTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

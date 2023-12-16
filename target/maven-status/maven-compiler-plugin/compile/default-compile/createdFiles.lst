@@ -1,0 +1,4 @@
+pageobject\CommonPageObject.class
+pageobject\ShopPageObject.class
+pageobject\LoginPageObject.class
+pageobject\ProfilePageObject.class
